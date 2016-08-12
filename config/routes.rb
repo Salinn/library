@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
  
-  resources :users do 
-    resources :books
-  end
+  resources :users
   resources :books
-  resources :libraries
+  resources :libraries 
   
   #Creates static page routes
   StaticPagesController.action_methods.each do |action|

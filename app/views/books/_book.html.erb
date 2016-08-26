@@ -1,0 +1,17 @@
+<tr id="book_<%= book.id %>">
+  <td><%= book.title %></td>
+  <td><%= book.author %></td>
+  <td><%= book.section %></td>
+  <td><%= book.library.name %></td>
+  <td>
+    <%= link_to book, class: 'btn btn-xs', title: 'Show' do %>
+      <%= glyph 'info-sign' %>
+    <%- end -%>
+    <%= link_to edit_book_path(book), remote: true, class: 'btn btn-xs', title: 'Edit' do %>
+      <%= glyph 'pencil' %>
+    <%- end -%>
+    <%= link_to book, remote: true, method: :delete, data: { confirm: "Are you sure you want to delete the #{book.title} book?"}, class: 'btn btn-xs', title: 'Destroy' do %>
+      <%= glyph 'remove' %>
+    <%- end -%>
+  </td>
+</tr>

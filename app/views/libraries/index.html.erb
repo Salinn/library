@@ -3,21 +3,22 @@
 <div class="page-header">
   <h1><%=t '.title', default: model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<%= search_form_for @q do |f| %>
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+  <%= f.submit %>
+<% end %>
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= sort_link(@q, :name) %></th>
       <th><%=t '.actions', default: t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% @libraries.each do |library| %>
       <tr>
-        <td><%= library.id %></td>
           <td><%= library.name %></td>
-        <td><%=l library.created_at, format: :long %></td>
         <td>
           <%= link_to library_path(library), class: 'btn btn-xs', title: "#{ t('.show', default: t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>
@@ -33,7 +34,5 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to t('.new', default: t("helpers.links.new")),
-            new_library_path,
-            class: 'btn btn-primary' %>
+<%= will_paginate @libraries, renderer: BootstrapPagination::Rails %>  
+<%= link_to 'New', new_library_path, class: 'btn btn-primary' %>

@@ -4,7 +4,8 @@ class LibrariesController < ApplicationController
   # GET /libraries
   # GET /libraries.json
   def index
-    @libraries = Library.all
+    @q = Library.ransack(params[:q])  
+    @libraries = @q.result(distinct: true).paginate(page: params[:page], per_page: 10)
   end
 
   # GET /libraries/1

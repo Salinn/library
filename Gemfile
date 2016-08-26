@@ -17,6 +17,11 @@ gem 'coffee-rails', '~> 4.1.0'
 # bootstrap gem
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap-sass-extras'
+gem 'will_paginate-bootstrap'  
+
+# Searching and Pagination
+gem 'ransack', github: 'activerecord-hackery/ransack'  
+gem 'will_paginate', github: 'jonatack/will_paginate'  
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

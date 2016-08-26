@@ -4,7 +4,8 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @q = Book.ransack(params[:q])  
+    @books = @q.result(distinct: true).includes(:library).paginate(page: params[:page], per_page: 10)  
   end
 
   # GET /books/1

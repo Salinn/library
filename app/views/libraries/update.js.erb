@@ -1,0 +1,10 @@
+<% if response.status == 200 %>
+  $('#dialog').modal('toggle');
+  $('#library_<%= @library.id %>').replaceWith('<%= j render 'libraries/library', library: @library %>');
+<% else %>
+  if ($('#error_explanation').size()) {
+    $('#error_explanation').html('<%= j(render 'layouts/errors', object: @library) %>');
+  } else {
+    $('#edit_library_<%= @library.id %>').prepend('<%= j(render 'layouts/errors', object: @library) %>');
+  }
+<% end %>

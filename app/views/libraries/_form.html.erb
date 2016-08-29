@@ -1,4 +1,4 @@
-<%= form_for @library, html: { class: 'form-horizontal' } do |f| %>
+<%= form_for @library, remote: true, html: { class: 'form-horizontal' } do |f| %>
   <%= render 'layouts/errors', object: @library %>
   
   <div class="form-group">

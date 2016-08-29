@@ -1,0 +1,12 @@
+<tr id="library_<%= library.id %>">
+  <td><%= library.name %></td>
+  <td>
+    <%= link_to edit_library_path(library), remote: true, class: 'btn btn-xs', title: 'Edit' do %>
+      <%= glyph 'pencil' %>
+    <% end %>
+    <%= link_to library, remote: true, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs', title: 'Destroy' do %>
+      <%= glyph 'remove' %>
+    <% end %>
+  </td>
+</tr>
+    

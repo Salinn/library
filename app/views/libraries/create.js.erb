@@ -1,0 +1,11 @@
+<% if response.status == 201 %>
+  $('#dialog').modal('toggle');
+  $('#libraries').prepend('<%= j render 'libraries/library', library: @library %>');
+  $('#libraries tr:last').remove();
+<% else %>
+  if ($('#error_explanation').size()) {
+    $('#error_explanation').html('<%= j(render 'layouts/errors', object: @library) %>');
+  } else {
+    $('#new_library').prepend('<%= j(render 'layouts/errors', object: @library) %>');
+  }
+<% end %>

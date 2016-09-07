@@ -1,30 +1,123 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-  <div class="container">
-    <h1>Hello, TDPers!</h1>
-    <p>This is our example website for our library application. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
-  </div>
-</div>
+
+<!-- Page Content -->
+
+        
+
+<div class="container ryan">
+
+
+          <div class="row carousel-holder">
+
+                    <div class="col-lg-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <%= image_tag("test.jpg") %>
+                                    
+                                </div>
+                                <div class="item">
+                                   <%= image_tag("slider2.jpg") %>
+                                    
+                                </div>
+                                <div class="item">
+                                    <%= image_tag("slider3.jpg") %>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+<br>
+<br>
+
+
+
+
 
 <div class="container">
   <!-- Example row of columns -->
   <div class="row">
     <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <h2 class="icons">Innovation</h2>
+     <%= image_tag("innovate.png", class: "icon-img") %>
     </div>
     <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <h2 class="icons">Teamwork</h2>
+           <%= image_tag("handshake.png", class: "icon-img") %>
    </div>
     <div class="col-md-4">
-      <h2>Heading</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      <h2 class="icons">Leadership</h2>
+          <%= image_tag("leadership.png", class: "icon-img") %>
     </div>
   </div>
 
-      <hr>
+    </div>
+    
+    
+
+
+<div class="container">
+    <div class="page-header">
+        <h1 id="timeline">Program Overview</h1>
+    </div>
+    <ul class="timeline">
+        <li>
+          <div class="timeline-badge"><i class="glyphicon glyphicon-briefcase"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Orientation and Business Assignment</h4>
+            
+            </div>
+            <div class="timeline-body">
+              <p> The Business Assignment portion of TDP lasts approximately seven months and provides participants experience using and analyzing IT products and services from an end-user perspective.  Participants also learn about Liberty Mutual's core business functions. <br /> <br />
+                From the Business Assignment, participants gain a solid understanding of a key component in the Liberty Mutual Business model and how IT products and services impact business performance.</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge warning"><i class="glyphicon glyphicon-wrench"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Project and Technical Training</h4>
+            </div>
+            <div class="timeline-body">
+              <p>The Project and Technical Training portion of the program lasts approximately ten months and focuses on the fundamentals of application development and project management.  TDP participants will work in teams to develop and deliver a software application that supports Liberty Mutual's business objectives. <br /> <br />
+                    The technical training provides each participant with the skills and capabilities necessary to move into a variety of roles including Data Analyst, Project Coordinator, Software Developer, Systems Analyst and more.  The project experience provides each participant an opportunity to experience a full project life cycle while applying the skills acquired in training classes.</p>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge danger"><i class="glyphicon glyphicon-education"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">IT Assignment</h4>
+            </div>
+            <div class="timeline-body">
+              <p>The third phase of the program builds business, information technology and project management skills in a six month assignment in the IT organization.  This assignment will provide TDP employees with knowledge of how the IT organization supports the Liberty Mutual business units. <br /> <br />
+                Participants will acquire a solid understanding of the breadth of services required to support business applications, solid leadership skills, increased exposure to people and technologies and  a greater understanding of project management principles.</p>
+            </div>
+          </div>
+        </li>
+
+
+    </ul>
+</div>
+               
+  
+
+
+    </div>
+    

@@ -4,15 +4,23 @@
   <title>TDP Library App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ 
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
   <%= stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Dosis', media: 'all', 'data-turbolinks-track' => true %>
+  
 </head>
 <body>
 <%=render 'shared/header' %>
 <div class="container">
   <%= yield %>
 </div>
-
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted, footer2">Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed 
+under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a></p>
+      </div>
+    </footer>
 <%= render 'layouts/dialog' %>  
 </body>
 </html>

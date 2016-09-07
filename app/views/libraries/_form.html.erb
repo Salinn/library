@@ -1,4 +1,6 @@
-<%= form_for @library, html: { class: 'form-horizontal' } do |f| %>
+<%= form_for @library, remote: true, html: { class: 'form-horizontal' } do |f| %>
+  <%= render 'layouts/errors', object: @library %>
+  
   <div class="form-group">
     <%= f.label :name, class: 'control-label col-md-2' %>
     <div class="col-md-10">
@@ -9,8 +11,7 @@
   <div class="form-group">
     <div class='col-md-offset-2 col-md-10'>
       <%= f.submit nil, class: 'btn btn-primary' %>
-      <%= link_to t('.cancel', default: t("helpers.links.cancel")),
-                  libraries_path, class: 'btn btn-default' %>
+      <%= link_to 'Cancel', libraries_path, class: 'btn btn-default' %>
     </div>
   </div>
 <% end %>

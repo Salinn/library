@@ -1,0 +1,11 @@
+<% if response.status == 201 %>
+  $('#dialog').modal('toggle');
+  $('#books').prepend('<%= j render 'books/book', book: @book %>');
+  $('#books tr:last').remove();
+<% else %>
+  if ($('#error_explanation').size()) {
+    $('#error_explanation').html('<%= j(render 'layouts/errors', object: @book) %>');
+  } else {
+    $('#new_book').prepend('<%= j(render 'layouts/errors', object: @book) %>');
+  }
+<% end %>

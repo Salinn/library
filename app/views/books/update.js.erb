@@ -1,0 +1,10 @@
+<% if response.status == 200 %>
+  $('#dialog').modal('toggle');
+  $('#book_<%= @book.id %>').replaceWith('<%= j render 'books/book', book: @book %>');
+<% else %>
+  if ($('#error_explanation').size()) {
+    $('#error_explanation').html('<%= j(render 'layouts/errors', object: @book) %>');
+  } else {
+    $('#edit_book_<%= @book.id %>').prepend('<%= j(render 'layouts/errors', object: @book) %>');
+  }
+<% end %>

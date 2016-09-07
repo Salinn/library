@@ -1,0 +1,11 @@
+<% if response.status == 200 %>  
+  $('#dialog').modal('toggle');  
+  $('#user_<%= @user.id %>').replaceWith('<%= j render 'users/user', user: @user %>');  
+<% else %>  
+  <%= puts 'elese' %>  
+  if ($('#error_explanation').size()) {  
+    $('#error_explanation').html('<%= j(render 'layouts/errors', object: @user) %>');  
+  } else {  
+    $('#edit_user_<%= @user.id %>').prepend('<%= j(render 'layouts/errors', object: @user) %>');  
+  }  
+<% end %> 

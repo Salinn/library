@@ -3,41 +3,31 @@
 <div class="page-header">
   <h1><%=t '.title', default: model_class.model_name.human.pluralize.titleize %></h1>
 </div>
+<%= search_form_for @q do |f| %>  
+  <%= f.label :first_name_cont %>  
+  <%= f.search_field :first_name_cont %>  
+  <%= f.label :last_name_cont %>  
+  <%= f.search_field :last_name_cont %> 
+  <%= f.label :email_cont %>  
+  <%= f.search_field :email_cont %> 
+  <%= f.submit %>  
+<% end %>  
+
+<%= link_to 'New', new_user_path, remote: true, class: 'btn btn-primary' %>
+
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
-      <th><%= model_class.human_attribute_name(:last_name) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= sort_link(@q,:first_name) %></th>
+      <th><%= sort_link(@q,:last_name) %></th>
+      <th><%= sort_link(@q,:email) %></th>
       <th><%=t '.actions', default: t("helpers.actions") %></th>
     </tr>
   </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.id %></td>
-          <td><%= user.first_name %></td>
-          <td><%= user.last_name %></td>
-          <td><%= user.email %></td>
-        <td><%=l user.created_at, format: :long %></td>
-        <td>
-          <%= link_to user_path(user), class: 'btn btn-xs', title: "#{ t('.show', default: t('helpers.links.show')) }" do %>
-            <%= glyph 'info-sign' %>
-          <%- end -%>
-          <%= link_to edit_user_path(user), class: 'btn btn-xs', title: "#{ t('.edit', default: t('helpers.links.edit')) }" do %>
-            <%= glyph 'pencil' %>
-          <%- end -%>
-          <%= link_to user_path(user), method: :delete, data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) }, class: 'btn btn-xs', title: "#{ t('.destroy', default: t('helpers.links.destroy')) }" do %>
-            <%= glyph 'remove' %>
-          <%- end -%>
-        </td>
-      </tr>
-    <% end %>
+  <tbody id='users'>
+    <%= render @users %>
   </tbody>
 </table>
 
-<%= link_to t('.new', default: t("helpers.links.new")),
-            new_user_path,
-            class: 'btn btn-primary' %>
+<%= will_paginate @users, renderer: BootstrapPagination::Rails %>  
+

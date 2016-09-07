@@ -4,7 +4,8 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+    @q = Book.ransack(params[:q])  
+    @books = @q.result(distinct: true).includes(:library).paginate(page: params[:page], per_page: 10)  
   end
 
   # GET /books/1
@@ -30,9 +31,11 @@ class BooksController < ApplicationController
       if @book.save
         format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
+        format.js   { render status: :created }
       else
         format.html { render :new }
         format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.js   { render status: :internal_server_error }
       end
     end
   end
@@ -44,9 +47,11 @@ class BooksController < ApplicationController
       if @book.update(book_params)
         format.html { redirect_to @book, notice: 'Book was successfully updated.' }
         format.json { render :show, status: :ok, location: @book }
+        format.js   { render status: :ok }
       else
         format.html { render :edit }
         format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.js   { render status: :internal_server_error }
       end
     end
   end
@@ -54,10 +59,12 @@ class BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.json
   def destroy
+    puts 'destroy'
     @book.destroy
     respond_to do |format|
       format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 

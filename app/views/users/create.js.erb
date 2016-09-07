@@ -1,0 +1,11 @@
+<% if response.status == 201 %>  
+  $('#dialog').modal('toggle');  
+  $('#users').prepend('<%= j render 'users/user', user: @user %>');  
+  $('#users tr:last').remove();  
+<% else %>  
+  if ($('#error_explanation').size()) {  
+    $('#error_explanation').html('<%= j(render 'layouts/errors', object: @user) %>');  
+  } else {  
+    $('#new_user').prepend('<%= j(render 'layouts/errors', object: @user) %>');  
+  }  
+<% end %> 

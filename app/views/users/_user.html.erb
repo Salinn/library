@@ -1,0 +1,13 @@
+<tr id="user_<%= user.id %>">
+ <td><%= user.first_name %></td>
+ <td><%= user.last_name %></td>
+ <td><%= user.email %></td>
+ <td>
+  <%= link_to edit_user_path(user), remote: true, class: 'btn btn-xs', title: 'Edit' do %>
+    <%= glyph 'pencil' %>
+  <% end %>
+  <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' }, remote: true, class: 'btn btn-xs', title: 'Destroy' do %>
+    <%= glyph 'remove' %>
+  <% end %>
+  </td>
+</tr>

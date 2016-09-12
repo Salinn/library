@@ -1,7 +1,4 @@
-.jumbotron h1, .jumbotron .h1 {
-<<<<<<< HEAD
-   font-family: 'Dosis'
-}
+
 
 .icons {
     text-align: center;
@@ -12,7 +9,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5%;
-}\
+}
 
 .navbar-nav {
     float: right;
@@ -166,7 +163,5 @@ width: 100%;
 }
 .timeline-body > p + p {
   margin-top: 5px;
-=======
     font-family: 'Dosis'
->>>>>>> master
 }
